@@ -16,7 +16,7 @@ int main() {
     int current_time = 0, completed = 0;
     int gantt_chart[1000], gc_index = 0;  // Array to store Gantt chart (assuming max 1000 time units)
     
-    // Input number of processes
+    printf("Enter the number of processes: ");
     scanf("%d", &n);
     
     float sum_tat = 0, sum_wt = 0, sum_rt = 0;

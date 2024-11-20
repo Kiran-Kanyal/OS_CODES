@@ -33,7 +33,7 @@ int main(){
             printf("Memory block assigned to Process %d: %d\n",process[i],given_block[i]);
         }
         else{
-            printf("No memory block could be assigned.\n");
+            printf("%d: No memory block could be assigned.\n",process[i]);
         }
     }
 }

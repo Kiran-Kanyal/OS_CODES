@@ -1,10 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<limits.h>
-//why worst fit :
-//i> small process (will get executed fast) so giving it memory so more time taking process will get executed later.
-//ii> possibility of dynamically growing process (might need more memory (allocated at dynamic time))
-// ONE BLOCK : ONE PROCESS ONLY
 int main(){
     int no_of_blocks;
     printf("Enter the number of blocks: ");
@@ -44,7 +40,12 @@ int main(){
             printf("Memory block assigned to Process %d: %d\n",process[i],given_block[i]);
         }
         else{
-            printf("No memory block could be assigned.\n");
+            printf("%d: No memory block could be assigned.\n",process[i]);
         }
     }
 }
+
+//why worst fit :
+//i> small process (will get executed fast) so giving it memory so more time taking process will get executed later.
+//ii> possibility of dynamically growing process (might need more memory (allocated at dynamic time))
+// ONE BLOCK : ONE PROCESS ONLY

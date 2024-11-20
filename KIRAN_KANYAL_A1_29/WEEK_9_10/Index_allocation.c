@@ -7,6 +7,7 @@ struct File
     char name[20];
     int startBlock;
     int length;
+    int index;
 };
 // Structure to represent a disk block
 struct DiskBlock
@@ -14,11 +15,16 @@ struct DiskBlock
     int occupied;  // 0 means free, 1 means occupied
     int nextBlock; // Stores the index of the next block in the linked list
 };
+struct Index
+{
+    int in[100];
+};
 // Structure to represent the disk
 struct Disk
 {
     struct DiskBlock blocks[MAX_DISK_SIZE];
 };
+struct Index obj[100];
 // Function to allocate a file on the disk using linked list allocation
 int allocateFile(struct Disk *disk, struct File *file)
 {
@@ -26,6 +32,15 @@ int allocateFile(struct Disk *disk, struct File *file)
     int allocatedBlocks = 0;
     int currentBlock = file->startBlock;
     int previousBlock = -1;
+    printf("enter index block for file\n");
+    int idx;
+    scanf("%d", &idx);
+    if (disk->blocks[idx].occupied == 1)
+    {
+        printf("valid index value\n");
+        return 0;
+    }
+    file->index = idx;
     while (allocatedBlocks < requiredBlocks)
     {
         if (currentBlock >= MAX_DISK_SIZE || disk->blocks[currentBlock].occupied == 1)
@@ -41,10 +56,12 @@ int allocateFile(struct Disk *disk, struct File *file)
         allocatedBlocks++;
         // Find the next free block
         int foundNext = 0;
+        int j = 0;
         for (int i = 0; i < MAX_DISK_SIZE; i++)
         {
             if (disk->blocks[i].occupied == 0)
             {
+                obj[idx].in[j++] = i;
                 currentBlock = i;
                 foundNext = 1;
                 break;
@@ -90,13 +107,11 @@ int main()
             printf("Failed to allocate file '%s'. Not enough free blocks or invalid block range.\n",
                    files[i].name);
         }
-    }
-    // Display the allocation status of the disk
-    printf("\nDisk Allocation Status (Linked List):\n");
-    printf("Block\tOccupied\tNext Block\n");
-    for (int i = 0; i < MAX_DISK_SIZE; i++)
-    {
-        printf("%d\t%d\t\t%d\n", i, disk.blocks[i].occupied, disk.blocks[i].nextBlock);
+        int id = files.index;
+        for (int z = 0; z < files[z].length; z++)
+        {
+            printf("%d ", obj[id].in[z]);
+        }
     }
     return 0;
 }

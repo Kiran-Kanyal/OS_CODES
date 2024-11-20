@@ -1,5 +1,3 @@
-// deadlock detecction
-
 #include <stdio.h>
 #define MAX_PROCESSES 10
 #define MAX_RESOURCES 10

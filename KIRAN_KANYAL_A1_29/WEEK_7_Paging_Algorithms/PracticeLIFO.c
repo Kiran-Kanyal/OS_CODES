@@ -67,7 +67,7 @@ int main(){
             }
         }
     }
-    printf("Number of Page Faults: %d",page_fault);
-    printf("Page Fault Ration = %f", (float)page_fault/n);
-    printf("Hit Ratio : %f", (float) (n-page_fault)/n);
+    printf("Number of Page Faults: %d\n",page_fault);
+    printf("Page Fault Ration = %f\n", (float)page_fault/n);
+    printf("Hit Ratio : %f\n", (float) (n-page_fault)/n);
 }

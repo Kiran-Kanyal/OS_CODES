@@ -41,15 +41,14 @@ int main() {
 
     printf("Enter total number of processes: ");
     scanf("%d", &n);
-
+    printf("\nEnter Arrival Time of processes: ");
     for (int i = 0; i < n; i++) {
-        printf("\nEnter Process %d Arrival Time: ", i);
+        
         scanf("%d", &ps[i].at);
         ps[i].pid = i;
     }
-
+    printf("\nEnter Burst Time of processes: ");
     for (int i = 0; i < n; i++) {
-        printf("\nEnter Process %d Burst Time: ", i);
         scanf("%d", &ps[i].bt);
         ps[i].bt_remaining = ps[i].bt;
     }

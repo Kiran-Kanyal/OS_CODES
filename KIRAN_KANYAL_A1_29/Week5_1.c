@@ -117,9 +117,9 @@ bool isSafeState(struct process_info process[no_of_process], int available[no_of
 }
 int main()
 {
-    printf("Enter No of Process\n");
+    printf("Enter No of Process: ");
     scanf("%d", &no_of_process);
-    printf("Enter No of Resource Instances in system\n");
+    printf("Enter No of Resource Instances in system: ");
     scanf("%d", &no_of_resources);
     int available[no_of_resources];
     int safeSequence[no_of_process];
