@@ -2,10 +2,6 @@
 #include<stdio.h>
 #include<stdbool.h>
 #include<string.h>
-// Example:
-// No of frames = 3
-// No of request = 12
-// 2 3 2 1 5 2 4 5 3 1 5 2
 struct PageTable{
     int frame_no;
     bool valid;

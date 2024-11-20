@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<limits.h>
-// CONFIRM IF MORE THAN ONE PROCESS CAN BE ASSIGNED TO THE SAME BLOCK OR NOT
 int main(){
     int no_of_blocks;
     printf("Enter the number of blocks: ");

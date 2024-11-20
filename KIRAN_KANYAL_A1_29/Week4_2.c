@@ -1,4 +1,4 @@
-//Priority Preemptive
+//Priority NOn Preemptive
 #include<stdio.h>
 #include<stdbool.h>
 #include<limits.h>
@@ -72,9 +72,7 @@ int main() {
             ps[max_index].tat = ps[max_index].ct - ps[max_index].at;
             ps[max_index].wt = ps[max_index].tat - ps[max_index].bt;
             ps[max_index].rt = ps[max_index].start_time - ps[max_index].at;
-
             total_idle_time += (is_first_process == true) ? 0 : (ps[max_index].start_time - prev);
-
             sum_tat += ps[max_index].tat;
             sum_wt += ps[max_index].wt;
             sum_rt += ps[max_index].rt;
@@ -83,7 +81,6 @@ int main() {
             current_time = ps[max_index].ct;
             prev = current_time;
             is_first_process = false;
-
             // Record process execution in Gantt chart
             gantt_chart[gc_index++] = max_index;
         }
@@ -98,27 +95,21 @@ int main() {
     }
     length_cycle = max_completion_time - min_arrival_time;
     cpu_utilization = (float)(length_cycle - total_idle_time) / length_cycle;
-
-    // Print start times
     printf("\nStart times:\n");
     for (int i = 0; i < n; i++) {
         printf("%d ", ps[i].start_time);
     }
-
-    // Print completion times
     printf("\nCompletion times:\n");
     for (int i = 0; i < n; i++) {
         printf("%d ", ps[i].ct);
     }
 
-    // Print averages
     printf("\nAverage Turn Around Time: %.2f", sum_tat / n);
     printf("\nAverage Waiting Time: %.2f", sum_wt / n);
     printf("\nAverage Response Time: %.2f", sum_rt / n);
     printf("\nThroughput: %.2f", n / (float)length_cycle);
     printf("\nCPU Utilization (Percentage): %.2f", cpu_utilization * 100);
 
-    // Print Gantt Chart
     printf("\n\nGantt Chart:\n");
     for (int i = 0; i < gc_index; i++) {
         printf("| P%d ", gantt_chart[i] + 1);  // +1 for 1-based process numbering
