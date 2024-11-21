@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 // Arrays to represent philosophers and chopstick status
 int p[5];  // Philosopher states: 0 = Thinking, 1 = Eating

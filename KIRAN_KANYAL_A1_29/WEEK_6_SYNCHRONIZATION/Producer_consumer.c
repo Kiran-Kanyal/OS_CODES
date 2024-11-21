@@ -40,7 +40,6 @@ int produceItem()
 {
     return rand(); // Produces a random item
 }
-
 // Function to insert an item into the buffer
 void insertItem(int item)
 {
